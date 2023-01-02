@@ -96,3 +96,24 @@ function pickOne(f1, f2) {
 }
 
 // pickOne(rage, cry);
+
+// Functions as Return Values
+function multiplyBy(num) {
+  return function (x) {
+    return x * num;
+  };
+}
+
+const triple = multiply(3);
+const double = multiply(2);
+const halve = multiplyBy(0.5);
+
+function makeBetweenFunc(x, y) {
+  return function (num) {
+    return num >= x && num <= y;
+  };
+}
+
+const isChild = makeBetweenFunc(0, 18);
+
+const isNiceWeather = makeBetweenFunc(65, 80);
