@@ -131,3 +131,22 @@ const btn = document.querySelector("button");
 btn.addEventListener("click", function () {
   alert("Why did you click me?");
 });
+
+// Hoisting
+console.log(animal); //  undefined
+var animal = "Tapir";
+console.log(animal); // Tapir
+
+console.log(shrimp);
+let shrimp = "Harlequin Shrimp";
+/* let and const are not hoisted */
+
+// howl()
+function howl() {
+  console.log("AWOOOOOOO");
+}
+// howl()
+
+var hoot = function () {
+  console.log("HOOOO HOOOO");
+};
