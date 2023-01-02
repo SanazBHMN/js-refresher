@@ -37,4 +37,62 @@ const product = function multiply(x, y) {
 };
 // console.dir(product);
 
+// Functions as Objects
+function add(x, y) {
+  return x + y;
+}
+
+const subtract = function (x, y) {
+  return x - y;
+};
+
+function multiply(x, y) {
+  return x * y;
+}
+
+const divide = function (x, y) {
+  return x / y;
+};
+
+const operations = [add, subtract, multiply, divide];
+
+// operations[1](100, 4);
+for (let func of operations) {
+  let result = func(30, 5);
+  console.log(result);
+}
+
 // Higher Order Functions
+function callThreeTimes(f) {
+  f();
+  f();
+  f();
+}
+
+function cry() {
+  console.log("BOO HOO I'M SO SAD!");
+}
+
+function rage() {
+  console.log("I HATE EVERYTHING!");
+}
+
+function repeatNTimes(action, num) {
+  for (let i = 0; i < num; i++) {
+    action();
+  }
+}
+
+// repeatNTimes(rage, 13);
+
+function pickOne(f1, f2) {
+  let rand = Math.random();
+  console.log(rand);
+  if (rand < 0.5) {
+    f1();
+  } else {
+    f2();
+  }
+}
+
+// pickOne(rage, cry);
