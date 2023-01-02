@@ -117,3 +117,17 @@ function makeBetweenFunc(x, y) {
 const isChild = makeBetweenFunc(0, 18);
 
 const isNiceWeather = makeBetweenFunc(65, 80);
+
+// Callbacks
+function grumpus() {
+  alert("GAHHH GO AWAY!");
+}
+
+// setTimeout(function () {
+//   alert("GAHHH GO AWAY!");
+// }, 3000);
+
+const btn = document.querySelector("button");
+btn.addEventListener("click", function () {
+  alert("Why did you click me?");
+});
