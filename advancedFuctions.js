@@ -7,3 +7,15 @@ function doubleArr(arr) {
   }
   return result;
 }
+
+// Lexical Scope
+function outer() {
+  let movie = "amadeus";
+
+  function inner() {
+    // let movie = "The Shining";
+    console.log(movie.toLocaleUpperCase());
+  }
+
+  inner();
+}
