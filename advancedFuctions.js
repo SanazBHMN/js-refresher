@@ -19,3 +19,22 @@ function outer() {
 
   inner();
 }
+
+// Function Statement
+function add(x, y) {
+  return x + y;
+}
+// console.dir(add);
+
+// Function Expression
+const sum = function (x, y) {
+  return x + y;
+};
+// console.dir(sum);
+
+const product = function multiply(x, y) {
+  return x * y;
+};
+// console.dir(product);
+
+// Higher Order Functions
