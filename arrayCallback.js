@@ -81,10 +81,10 @@ const doubles = numbers.map(function (num) {
   return num * 2;
 });
 
-const words = ["asap", "byob", "rsvp", "diy"];
-const abbrevs = words.map(function (word) {
-  return word.toUpperCase().split("").join(".");
-});
+// const words = ["asap", "byob", "rsvp", "diy"];
+// const abbrevs = words.map(function (word) {
+//   return word.toUpperCase().split("").join(".");
+// });
 
 const numDetail = numbers.map(function (n) {
   return {
@@ -187,3 +187,19 @@ const results = books.filter((book) => {
   const title = book.title.toLowerCase();
   return title.includes(query.toLowerCase());
 });
+
+// some & every
+const words = ["dog", "dig", "log", "bag", "wag"];
+
+const all3Lets = words.every((word) => word.length === 3);
+
+const allEndInG = words.every((word) => {
+  const last = word.length - 1;
+  return word[last] === "g";
+});
+
+const someStartsWithD = words.some((word) => word[0] === "d");
+
+const allGoodBooks = books.every((book) => book.rating > 3.5);
+
+const any2Authors = books.some((book) => book.authors.length === 2);
