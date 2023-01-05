@@ -109,3 +109,20 @@ const parityList2 = nums.map((n) => {
 });
 
 const parityList3 = nums.map((n) => (n % 2 === 0 ? "even" : "odd"));
+
+// Array.find
+let movies = [
+  "The Fantastic Mr. Fox",
+  "Mr. and Mrs. Smith",
+  "Mrs. Doubtfire",
+  "Mr. Deeds",
+];
+
+const includesMrs = movies.find((movie) => {
+  return movie.includes("Mrs");
+});
+
+const startsWithMrs = movies.find((movie) => movie.indexOf("Mrs") === 0);
+
+const goodBook = books.find((book) => book.rating >= 4.3);
+const neilBook = books.find((book) => book.authors.includes("Neil Gaiman"));
