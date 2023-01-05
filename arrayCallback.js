@@ -41,3 +41,24 @@ const books = [
 books.forEach(function (book) {
   console.log(book.title.toUpperCase());
 });
+
+// map
+const doubles = numbers.map(function (num) {
+  return num * 2;
+});
+
+const words = ["asap", "byob", "rsvp", "diy"];
+const abbrevs = words.map(function (word) {
+  return word.toUpperCase().split("").join(".");
+});
+
+const numDetail = numbers.map(function (n) {
+  return {
+    value: n,
+    isEven: n % 2 === 0,
+  };
+});
+
+const titles = books.map(function (b) {
+  return b.title;
+});
