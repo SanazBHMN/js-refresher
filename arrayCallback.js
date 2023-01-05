@@ -62,3 +62,24 @@ const numDetail = numbers.map(function (n) {
 const titles = books.map(function (b) {
   return b.title;
 });
+
+// arrow functions
+// const square = function (x) {
+//   return x * x;
+// };
+
+const square = (x) => {
+  return x * x;
+};
+
+const isNumEven = (num) => {
+  return num % 2 === 0;
+};
+
+const multiply = (x, y) => {
+  return x * y;
+};
+
+const greet = () => {
+  console.log("HI!");
+};
