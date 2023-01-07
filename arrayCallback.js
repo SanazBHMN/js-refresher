@@ -216,3 +216,22 @@ books.sort((a, b) => a.rating - b.rating);
 const product = nums.reduce((total, currentVal) => {
   return total * currentVal;
 });
+
+const grades = [87, 64, 96, 92, 88, 99, 73, 70, 64];
+
+const maxGrade1 = grades.reduce((max, currentVal) => {
+  if (currentVal > max) return currentVal;
+  return max;
+});
+
+const maxGrade2 = grades.reduce((max, currentVal) => {
+  return Math.max(max, currentVal);
+});
+
+const minGrade = grades.reduce((min, currentVal) => {
+  return Math.min(min, currentVal);
+});
+
+const sum = nums.reduce((sum, currentVal) => {
+  return sum + currentVal;
+}, 100);
