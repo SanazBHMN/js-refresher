@@ -203,3 +203,11 @@ const someStartsWithD = words.some((word) => word[0] === "d");
 const allGoodBooks = books.every((book) => book.rating > 3.5);
 
 const any2Authors = books.some((book) => book.authors.length === 2);
+
+// revisiting sort!
+const prices = [400.5, 3000, 99.99, 35.99, 12.0, 9500];
+
+const ascSort = prices.slice().sort((a, b) => a - b);
+const descSort = prices.slice().sort((a, b) => b - a);
+
+books.sort((a, b) => a.rating - b.rating);
