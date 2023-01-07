@@ -211,3 +211,8 @@ const ascSort = prices.slice().sort((a, b) => a - b);
 const descSort = prices.slice().sort((a, b) => b - a);
 
 books.sort((a, b) => a.rating - b.rating);
+
+// reduce
+const product = nums.reduce((total, currentVal) => {
+  return total * currentVal;
+});
