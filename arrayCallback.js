@@ -59,6 +59,12 @@ const books = [
     genres: ["fiction", "short stories"],
   },
   {
+    title: "A Truly Horrible Book",
+    authors: ["Xavier Time"],
+    rating: 2.18,
+    genres: ["fiction", "garbage"],
+  },
+  {
     title: "The Way of Kings",
     authors: ["Brandon Sanderson"],
     rating: 4.65,
@@ -235,3 +241,30 @@ const minGrade = grades.reduce((min, currentVal) => {
 const sum = nums.reduce((sum, currentVal) => {
   return sum + currentVal;
 }, 100);
+
+const votes = ["y", "y", "n", "y", "n", "y", "n", "y", "n", "n", "n", "y", "y"];
+
+const result1 = votes.reduce((tally, val) => {
+  if (tally[val]) {
+    tally[val]++;
+  } else {
+    tally[val] = 1;
+  }
+
+  return tally;
+}, {});
+
+const result2 = votes.reduce((tally, val) => {
+  tally[val] = (tally[val] || 0) + 1;
+
+  return tally;
+}, {});
+
+const groupedByRatings = books.reduce((groupedBooks, book) => {
+  const key = Math.floor(book.rating);
+
+  if (!groupedBooks[key]) groupedBooks[key] = [];
+  groupedBooks[key].push(book);
+
+  return groupedBooks;
+}, {});
