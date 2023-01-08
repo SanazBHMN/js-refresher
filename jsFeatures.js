@@ -69,3 +69,13 @@ const tripod = { ...canine, legs: 3 };
 const tripodTheOtherWay = { legs: 3, ...canine };
 
 const catDogClone = { ...catDog };
+
+// the argument object
+function sum() {
+  // console.log(arguments);
+  const argsArr = [...arguments];
+
+  return argsArr.reduce((total, currentVal) => {
+    return total + currentVal;
+  });
+}
