@@ -79,3 +79,22 @@ function sum() {
     return total + currentVal;
   });
 }
+
+// rest parameter
+function sum1(...nums) {
+  // console.log(nums);
+  return nums.reduce((total, currentVal) => {
+    return total + currentVal;
+  });
+}
+
+function fullName(firstName, lastName, ...titles) {
+  console.log("first", firstName);
+  console.log("last", lastName);
+  console.log("titles", titles);
+}
+
+// fullName("Tom", "Jones", "III", "order of the phoenix");
+
+const multiplyArrow = (...nums) =>
+  nums.reduce((total, currentVal) => total * currentVal);
