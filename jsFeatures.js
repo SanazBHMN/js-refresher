@@ -44,3 +44,28 @@ const mollusca = ["garden slug", ...cephalopods, ...gastropods];
 const inverts = [...cnidaria, ...gastropods, ...cephalopods];
 
 const cephCopy = [...cephalopods];
+
+// spread in object literals
+const feline = {
+  legs: 4,
+  family: "Felidae",
+};
+
+const canine = {
+  family: "Caninae",
+  furry: true,
+  legs: 4,
+};
+
+const dog = { ...canine, isPet: true, adorable: true };
+
+const houseCat = { ...feline, isGrumpy: true, personality: "unpredictable" };
+
+const catDog = { ...canine, ...feline };
+
+const tripod = { ...canine, legs: 3 };
+
+// the order does matter
+const tripodTheOtherWay = { legs: 3, ...canine };
+
+const catDogClone = { ...catDog };
