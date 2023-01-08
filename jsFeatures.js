@@ -153,3 +153,21 @@ const results = [
 
 const [, silverMedal] = results;
 const { country } = silverMedal;
+
+// destructuring parameters
+// function print(person) {
+//   const { first, last, title } = person;
+//   console.log(`${first} ${last}, ${title}`);
+// }
+
+function print({ first, last, title }) {
+  console.log(`${first} ${last}, ${title}`);
+}
+
+print(runner);
+
+const response = ["HTTP/1.1", "200 OK", "application/json"];
+
+function parseResponse([protocol, statusCode, contentType]) {
+  console.log(`Status: ${statusCode}`);
+}
