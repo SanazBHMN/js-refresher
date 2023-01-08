@@ -128,3 +128,28 @@ const runner = {
 // const { first, last, time } = runner;
 const { country: nation, title: honorific } = runner;
 const { first, last, ...other } = runner;
+
+// nested destructuring
+const results = [
+  {
+    first: "Eliud",
+    last: "Kipchoge",
+    country: "Kenya",
+  },
+  {
+    first: "Feyisa",
+    last: "Lilesa",
+    country: "Ethiopia",
+  },
+  {
+    first: "Galen",
+    last: "Rupp",
+    country: "United States",
+  },
+];
+
+// const [, { country }] = results;
+// const [{ first: goldWinner }, { country }] = results;
+
+const [, silverMedal] = results;
+const { country } = silverMedal;
