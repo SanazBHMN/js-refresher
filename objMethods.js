@@ -50,3 +50,13 @@ const addProp = (obj, key, value) => {
 };
 
 const res = addProp(team, "happy", ":)");
+
+// adding methods to objects
+const math = {
+  add: function (x, y) {
+    return x + y;
+  },
+  multiply: function (x, y) {
+    return x * y;
+  },
+};
