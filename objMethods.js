@@ -71,3 +71,13 @@ const auth = {
     console.log("GOODBYE!");
   },
 };
+
+// intro to keyword THIS
+function sayHi() {
+  console.log("HI");
+  console.log(this);
+}
+
+const greet = function () {
+  console.log(this);
+};
