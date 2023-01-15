@@ -81,3 +81,19 @@ function sayHi() {
 const greet = function () {
   console.log(this);
 };
+
+// using THIS in methods
+const person = {
+  firstName: "Cherilyn",
+  lastName: "Sarkisian",
+  nickName: "Cher",
+  fullName() {
+    // console.log(`${this.firstName} ${this.lastName} AKA ${this.nickName}`);
+    const { firstName, lastName, nickName } = this;
+    return `${firstName} ${lastName} AKA ${nickName}`;
+  },
+  printBio() {
+    const fullName = this.fullName();
+    console.log(`${fullName} is a person!`);
+  },
+};
