@@ -70,3 +70,13 @@ const allLIs = document.querySelectorAll("li");
 for (let li of allLIs) {
   li.innerHTML = "WE ARE <b>CHAMPIONS</b>!";
 }
+
+// altering styles
+p.style.backgroundColor = "orchid";
+
+const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+
+allLIs.forEach((li, i) => {
+  const color = colors[i];
+  li.style.color = color;
+});
