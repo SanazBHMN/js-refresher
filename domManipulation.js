@@ -35,3 +35,8 @@ const firstUl = document.querySelector("ul");
 const p = document.querySelector("#main");
 // console.log(p.textContent);
 // console.log(p.innerText);
+
+// innerHTML
+const form = document.querySelector("form");
+console.log(form.innerHTML);
+form.innerHTML = "<b>I am a bold tag!</b>";
