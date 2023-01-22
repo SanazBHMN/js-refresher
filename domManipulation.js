@@ -48,3 +48,9 @@ const form = document.querySelector("form");
 
 // const a = document.querySelector("a");
 // a.href;
+
+// getting and setting attributes
+// const range = document.querySelector("input[type='range']");
+// range.getAttribute("min");
+// range.getAttribute("type");
+// range.setAttribute("min", "-350");
