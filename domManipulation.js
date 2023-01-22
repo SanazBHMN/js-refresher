@@ -64,3 +64,9 @@ const firstLI = document.querySelector("li");
 
 const thirdLI = firstLI.nextElementSibling.nextElementSibling;
 // console.log(thirdLI.previousElementSibling);
+
+// changing multiple elements
+const allLIs = document.querySelectorAll("li");
+for (let li of allLIs) {
+  li.innerHTML = "WE ARE <b>CHAMPIONS</b>!";
+}
