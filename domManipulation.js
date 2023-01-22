@@ -24,3 +24,14 @@ console.dir(document.querySelector("section ul li.special"));
 console.dir(document.querySelector("input[type='password']"));
 
 const allInputs = document.querySelectorAll("input"); // NodeList
+
+// innerText & textContent
+const h1 = document.querySelector("h1");
+// console.log(h1.innerText);
+
+const firstUl = document.querySelector("ul");
+// console.log(firstUl.innerText);
+
+const p = document.querySelector("#main");
+// console.log(p.textContent);
+// console.log(p.innerText);
