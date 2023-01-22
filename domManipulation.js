@@ -54,3 +54,13 @@ const form = document.querySelector("form");
 // range.getAttribute("min");
 // range.getAttribute("type");
 // range.setAttribute("min", "-350");
+
+// finding parent/children/siblings
+const firstLI = document.querySelector("li");
+// console.dir(firstLI.parentElement.parentElement);
+// console.dir(firstUl.children[0].innerText);
+
+// console.log(firstLI.nextElementSibling);
+
+const thirdLI = firstLI.nextElementSibling.nextElementSibling;
+// console.log(thirdLI.previousElementSibling);
