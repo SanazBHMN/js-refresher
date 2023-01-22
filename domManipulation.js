@@ -72,11 +72,15 @@ for (let li of allLIs) {
 }
 
 // altering styles
-p.style.backgroundColor = "orchid";
+// p.style.backgroundColor = "orchid";
 
-const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
+// const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
 
-allLIs.forEach((li, i) => {
-  const color = colors[i];
-  li.style.color = color;
-});
+// allLIs.forEach((li, i) => {
+//   const color = colors[i];
+//   li.style.color = color;
+// });
+
+// getComputedStyle
+const styles = getComputedStyle(firstLI);
+// console.log(styles.color);
