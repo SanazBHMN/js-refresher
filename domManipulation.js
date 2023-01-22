@@ -8,3 +8,9 @@ for (let input of inputs) {
 
 // trun that array-lilke object into an actual array
 const arr = [...inputs];
+
+// getElementsByClassName
+const special = document.getElementsByClassName("special");
+
+const ul = document.getElementsByTagName("ul")[0];
+console.log(ul.getElementsByClassName("special"));
