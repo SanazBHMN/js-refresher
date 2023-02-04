@@ -98,3 +98,11 @@ todo.setAttribute("class", "done");
 // todo.classList.remove("done");
 // todo.classList.add("done");
 todo.classList.toggle("done");
+
+// creating elements
+const newh2 = document.createElement("h2");
+newh2.innerText = "I like animals!";
+newh2.classList.add("special");
+
+const section = document.querySelector("section");
+section.appendChild(newh2);
