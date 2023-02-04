@@ -66,10 +66,10 @@ const thirdLI = firstLI.nextElementSibling.nextElementSibling;
 // console.log(thirdLI.previousElementSibling);
 
 // changing multiple elements
-const allLIs = document.querySelectorAll("li");
-for (let li of allLIs) {
-  li.innerHTML = "WE ARE <b>CHAMPIONS</b>!";
-}
+// const allLIs = document.querySelectorAll("li");
+// for (let li of allLIs) {
+//   li.innerHTML = "WE ARE <b>CHAMPIONS</b>!";
+// }
 
 // altering styles
 // p.style.backgroundColor = "orchid";
@@ -84,3 +84,17 @@ for (let li of allLIs) {
 // getComputedStyle
 const styles = getComputedStyle(firstLI);
 // console.log(styles.color);
+
+// manipulation classes
+const todo = document.querySelector("#todos .todo");
+
+// todo.style.color = "gray";
+// todo.style.textDecoration = "line-through";
+// todo.style.opacity = "50%";
+
+// completely overwrote the previous class
+todo.setAttribute("class", "done");
+
+// todo.classList.remove("done");
+// todo.classList.add("done");
+todo.classList.toggle("done");
