@@ -56,13 +56,13 @@ const form = document.querySelector("form");
 // range.setAttribute("min", "-350");
 
 // finding parent/children/siblings
-const firstLI = document.querySelector("li");
+// const firstLI = document.querySelector("li");
 // console.dir(firstLI.parentElement.parentElement);
 // console.dir(firstUl.children[0].innerText);
 
 // console.log(firstLI.nextElementSibling);
 
-const thirdLI = firstLI.nextElementSibling.nextElementSibling;
+// const thirdLI = firstLI.nextElementSibling.nextElementSibling;
 // console.log(thirdLI.previousElementSibling);
 
 // changing multiple elements
@@ -82,7 +82,7 @@ const thirdLI = firstLI.nextElementSibling.nextElementSibling;
 // });
 
 // getComputedStyle
-const styles = getComputedStyle(firstLI);
+// const styles = getComputedStyle(firstLI);
 // console.log(styles.color);
 
 // manipulation classes
@@ -106,3 +106,26 @@ newh2.classList.add("special");
 
 const section = document.querySelector("section");
 section.appendChild(newh2);
+
+// append, prepend, & insertBefore
+const parentUL = document.querySelector("ul");
+const newLI = document.createElement("li");
+
+newLI.innerText = "I AM A NEW LI";
+
+const firstLI = document.querySelector("li.todo");
+
+parentUL.insertBefore(newLI, firstLI);
+
+const lastUL = document.querySelectorAll("li.todo")[2];
+
+parentUL.insertBefore(newLI, lastUL);
+
+const i = document.createElement("i");
+
+i.innerText = "I AM ITALICS!!!";
+
+const firstP = document.querySelector("p");
+
+firstP.append(i, newLI);
+firstP.prepend(i, newLI);
