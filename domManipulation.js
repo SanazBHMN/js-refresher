@@ -12,7 +12,7 @@ const arr = [...inputs];
 // getElementsByClassName
 const special = document.getElementsByClassName("special");
 
-const ul = document.getElementsByTagName("ul")[0];
+// const ul = document.getElementsByTagName("ul")[0];
 // console.log(ul.getElementsByClassName("special"));
 
 // querySelector & querySelectorAll
@@ -129,3 +129,11 @@ const firstP = document.querySelector("p");
 
 firstP.append(i, newLI);
 firstP.prepend(i, newLI);
+
+// removeChild & remove
+const ul = document.querySelector("section ul");
+const removeMe = ul.querySelector(".special");
+
+const deleted = ul.removeChild(removeMe);
+
+h1.remove();
