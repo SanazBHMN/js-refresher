@@ -30,7 +30,8 @@ const printColor = function (box) {
   console.log(this.style.backgroundColor);
 };
 
-const changeColor = function () {
+const changeColor = function (evt) {
+  console.log(evt);
   const h1 = document.querySelector("h1");
   h1.style.color = this.style.backgroundColor;
 };
@@ -51,3 +52,7 @@ for (let color of colors) {
 
   box.addEventListener("click", changeColor);
 }
+
+document.body.addEventListener("keypress", function (evt) {
+  console.log(evt);
+});
