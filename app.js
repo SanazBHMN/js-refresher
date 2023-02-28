@@ -57,32 +57,83 @@
 //   console.log(evt);
 // });
 
-const input = document.querySelector("#username");
+// const input = document.querySelector("#username");
 
-input.addEventListener("keydown", function (e) {
-  console.log("KEY DOWN");
-});
+// input.addEventListener("keydown", function (e) {
+//   console.log("KEY DOWN");
+// });
 
-input.addEventListener("keyup", function (e) {
-  console.log("KEY UP");
-});
+// input.addEventListener("keyup", function (e) {
+//   console.log("KEY UP");
+// });
 
-input.addEventListener("keypress", function (e) {
-  console.log("KEY PRESS");
-});
+// input.addEventListener("keypress", function (e) {
+//   console.log("KEY PRESS");
+// });
 
-const addItemInput = document.querySelector("#addItem");
-const itemsUL = document.querySelector("#items");
+// const addItemInput = document.querySelector("#addItem");
+// const itemsUL = document.querySelector("#items");
 
-addItemInput.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
-    if (!this.value) return;
-    // console.log(this.value);
+// addItemInput.addEventListener("keypress", function (e) {
+//   if (e.key === "Enter") {
+//     if (!this.value) return;
+//     // console.log(this.value);
 
-    const newItemText = this.value;
-    const newItem = document.createElement("li");
-    newItem.innerText = newItemText;
-    itemsUL.appendChild(newItem);
-    this.value = "";
+//     const newItemText = this.value;
+//     const newItem = document.createElement("li");
+//     newItem.innerText = newItemText;
+//     itemsUL.appendChild(newItem);
+//     this.value = "";
+//   }
+// });
+
+// Coin Game
+function isTouching(a, b) {
+  const aRect = a.getBoundingClientRect();
+  const bRect = b.getBoundingClientRect();
+
+  return !(
+    aRect.top + aRect.height < bRect.top ||
+    aRect.top > bRect.top + bRect.height ||
+    aRect.left + aRect.width < bRect.left ||
+    aRect.left > bRect.left + bRect.width
+  );
+}
+
+const avatar = document.querySelector("#player");
+const coin = document.querySelector("#coin");
+
+window.addEventListener("keyup", function (e) {
+  // console.log(e.key);
+  if (e.key === "ArrowDown" || e.key === "Down") {
+    const currentTop = extractPosition(avatar.style.top);
+    avatar.style.top = `${currentTop + 50}px`;
+  } else if (e.key === "ArrowUp" || e.key === "Up") {
+    const currentTop = extractPosition(avatar.style.top);
+    avatar.style.top = `${currentTop - 50}px`;
+  } else if (e.key === "ArrowRight" || e.key === "Right") {
+    const currentLeft = extractPosition(avatar.style.left);
+    avatar.style.left = `${currentLeft + 50}px`;
+    avatar.style.transform = "scale(1, 1)";
+  } else if (e.key === "ArrowLeft" || e.key === "Left") {
+    const currentLeft = extractPosition(avatar.style.left);
+    avatar.style.left = `${currentLeft - 50}px`;
+    avatar.style.transform = "scale(-1, 1)";
   }
+  if (isTouching(avatar, coin)) moveCoin();
 });
+
+const extractPosition = (pos) => {
+  if (!pos) return 100;
+  return parseInt(pos.slice(0, -2));
+};
+
+const moveCoin = () => {
+  const x = Math.floor(Math.random() * window.innerWidth);
+  const y = Math.floor(Math.random() * window.innerHeight);
+
+  coin.style.top = `${y}px`;
+  coin.style.left = `${x}px`;
+};
+
+moveCoin();
