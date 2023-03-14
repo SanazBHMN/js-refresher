@@ -150,3 +150,26 @@ form.addEventListener("submit", function (e) {
   console.log("terms", termsCheckbox.checked);
   console.log("veggies", veggieSelect.value);
 });
+
+const formData = {};
+for (const input of [creditCardInput, termsCheckbox, veggieSelect]) {
+  input.addEventListener("input", ({ target }) => {
+    const { name, type, value, checked } = target;
+    formData[name] = type === "checkbox" ? checked : value;
+    console.log(formData);
+  });
+}
+// creditCardInput.addEventListener("input", (e) => {
+//   console.log("CC CHANGED!", e);
+//   formData["cc"] = e.target.value;
+// });
+
+// termsCheckbox.addEventListener("input", (e) => {
+//   console.log("CHECKBOX!");
+//   formData["terms"] = e.target.checked;
+// });
+
+// veggieSelect.addEventListener("input", (e) => {
+//   console.log("VEGGIE CHANGED!", e);
+//   formData["veggies"] = e.target.value;
+// });
