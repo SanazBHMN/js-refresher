@@ -23,7 +23,13 @@ const makeRant = (phrase, el) => {
   el.appendChild(h1);
 };
 
-console.log("HELLO!!");
+// console.log("HELLO!!");
 
 makeRant("I hate mayonnaise", document.body);
 // makeRant("If you have to cough, please cover your mouth", document.body);
+
+console.log("I HAPPEN FIRST");
+setTimeout(() => {
+  console.log("I HAPPEN THIRD");
+}, 3000);
+console.log("I HAPPEN SECOND");
