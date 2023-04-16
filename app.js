@@ -134,23 +134,53 @@
 //   console.log(":( NO DOG");
 // });
 
-const makeDogPromise = () => {
+// const makeDogPromise = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       const rand = Math.random();
+//       if (rand < 0.5) {
+//         resolve();
+//       } else {
+//         reject();
+//       }
+//     }, 5000);
+//   });
+// };
+
+// makeDogPromise()
+//   .then(() => {
+//     console.log("YAY WE GOT A DOG");
+//   })
+//   .catch(() => {
+//     console.log(":( NO DOG");
+//   });
+
+const fakeRequest = (url) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const rand = Math.random();
-      if (rand < 0.5) {
-        resolve();
+      const pages = {
+        "/users": [
+          { id: 1, username: "Bilbo" },
+          { id: 5, username: "Esmerelda" },
+        ],
+        "/about": "This is the about page.",
+      };
+      const data = pages[url];
+      if (data) {
+        resolve({ status: 200, data });
       } else {
-        reject();
+        reject({ status: 404 });
       }
-    }, 5000);
+    }, 3000);
   });
 };
 
-makeDogPromise()
-  .then(() => {
-    console.log("YAY WE GOT A DOG");
+fakeRequest("/users")
+  .then((res) => {
+    console.log("Status Code: ", res.status);
+    console.log("Data: ", res.data);
+    console.log("REQUEST WORKED!");
   })
-  .catch(() => {
-    console.log(":( NO DOG");
+  .catch((res) => {
+    console.log(res.status, "REQUEST FAILED!");
   });
