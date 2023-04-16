@@ -34,7 +34,7 @@
 // }, 3000);
 // console.log("I HAPPEN SECOND");
 
-// const btn = document.querySelector("button");
+const btn = document.querySelector("button");
 
 // setTimeout(() => {
 //   btn.style.transform = `translateX(100px)`;
@@ -118,6 +118,41 @@
 //   }
 // );
 
+const moveX = (element, amount, delay) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const bodyBoundary = document.body.clientWidth;
+      const elRight = element.getBoundingClientRect().right;
+      const currLeft = element.getBoundingClientRect().left;
+
+      if (elRight + amount > bodyBoundary) {
+        reject({ bodyBoundary, elRight, amount });
+      } else {
+        element.style.transform = `translateX(${currLeft + amount}px)`;
+        resolve();
+      }
+    }, delay);
+  });
+};
+
+moveX(btn, 300, 1000)
+  .then(() => {
+    return moveX(btn, 300, 1000);
+  })
+  .then(() => {
+    return moveX(btn, 300, 100);
+  })
+  .then(() => {
+    return moveX(btn, 300, 1000);
+  })
+  .then(() => {
+    console.log("DONE WITH BOTH");
+  })
+  .catch(({ bodyBoundary, elRight, amount }) => {
+    console.log(`Body is ${bodyBoundary}px wide`);
+    console.log(`Element is at ${elRight}px, ${amount}px is too large!`);
+  });
+
 // Introducing Promises
 // const willGetYouADog = new Promise((resolve, reject) => {
 //   const rand = Math.random();
@@ -155,52 +190,52 @@
 //     console.log(":( NO DOG");
 //   });
 
-const fakeRequest = (url) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const pages = {
-        "/users": [
-          { id: 1, username: "Bilbo" },
-          { id: 5, username: "Esmerelda" },
-        ],
-        "/users/1": {
-          id: 1,
-          username: "Bilbo",
-          upvotes: 360,
-          city: "Lisbon",
-          topPosted: 454321,
-        },
-        "/users/5": {
-          id: 5,
-          username: "Esmerelda",
-          upvotes: 571,
-          city: "Honolulu",
-        },
-        "/posts/454321": {
-          id: 454321,
-          title: "Ladies & Gentlemen, may I introduce my pet pig, Helmet",
-        },
-        "/about": "This is the about page.",
-      };
-      const data = pages[url];
-      if (data) {
-        resolve({ status: 200, data });
-      } else {
-        reject({ status: 404 });
-      }
-    }, 3000);
-  });
-};
+// const fakeRequest = (url) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       const pages = {
+//         "/users": [
+//           { id: 1, username: "Bilbo" },
+//           { id: 5, username: "Esmerelda" },
+//         ],
+//         "/users/1": {
+//           id: 1,
+//           username: "Bilbo",
+//           upvotes: 360,
+//           city: "Lisbon",
+//           topPosted: 454321,
+//         },
+//         "/users/5": {
+//           id: 5,
+//           username: "Esmerelda",
+//           upvotes: 571,
+//           city: "Honolulu",
+//         },
+//         "/posts/454321": {
+//           id: 454321,
+//           title: "Ladies & Gentlemen, may I introduce my pet pig, Helmet",
+//         },
+//         "/about": "This is the about page.",
+//       };
+//       const data = pages[url];
+//       if (data) {
+//         resolve({ status: 200, data });
+//       } else {
+//         reject({ status: 404 });
+//       }
+//     }, 3000);
+//   });
+// };
 
-fakeRequest("/users")
-  .then((res) => {
-    console.log("Status Code: ", res.status);
-    console.log("Data: ", res.data);
-    console.log("REQUEST WORKED!");
-  })
-  .catch((res) => {
-    console.log(res.status, "REQUEST FAILED!");
-  });
+// fakeRequest("/users")
+//   .then((res) => {
+//     console.log("Status Code: ", res.status);
+//     console.log("Data: ", res.data);
+//     console.log("REQUEST WORKED!");
+//   })
+//   .catch((res) => {
+//     console.log(res.status, "REQUEST FAILED!");
+//   });
 
 // fakeRequest("/users")
 //   .then((res) => {
@@ -216,18 +251,18 @@ fakeRequest("/users")
 //     console.log("OH NO! ", err);
 //   });
 
-fakeRequest("/users")
-  .then((res) => {
-    const id = res.data[0].id;
-    return fakeRequest(`/users/${id}`);
-  })
-  .then((res) => {
-    const postId = res.data.topPosted;
-    return fakeRequest(`/posts/${postId}`);
-  })
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((err) => {
-    console.log("OH NO! ", err);
-  });
+// fakeRequest("/users")
+//   .then((res) => {
+//     const id = res.data[0].id;
+//     return fakeRequest(`/users/${id}`);
+//   })
+//   .then((res) => {
+//     const postId = res.data.topPosted;
+//     return fakeRequest(`/posts/${postId}`);
+//   })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log("OH NO! ", err);
+//   });
