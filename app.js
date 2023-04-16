@@ -34,7 +34,7 @@
 // }, 3000);
 // console.log("I HAPPEN SECOND");
 
-const btn = document.querySelector("button");
+// const btn = document.querySelector("button");
 
 // setTimeout(() => {
 //   btn.style.transform = `translateX(100px)`;
@@ -52,20 +52,20 @@ const btn = document.querySelector("button");
 //   }, 1000);
 // }, 1000);
 
-const moveX = (element, amount, delay, onSucess, onFailure) => {
-  setTimeout(() => {
-    const bodyBoundary = document.body.clientWidth;
-    const elRight = element.getBoundingClientRect().right;
-    const currLeft = element.getBoundingClientRect().left;
+// const moveX = (element, amount, delay, onSucess, onFailure) => {
+//   setTimeout(() => {
+//     const bodyBoundary = document.body.clientWidth;
+//     const elRight = element.getBoundingClientRect().right;
+//     const currLeft = element.getBoundingClientRect().left;
 
-    if (elRight + amount > bodyBoundary) {
-      onFailure();
-    } else {
-      element.style.transform = `translateX(${currLeft + amount}px)`;
-      onSucess();
-    }
-  }, delay);
-};
+//     if (elRight + amount > bodyBoundary) {
+//       onFailure();
+//     } else {
+//       element.style.transform = `translateX(${currLeft + amount}px)`;
+//       onSucess();
+//     }
+//   }, delay);
+// };
 
 // moveX(btn, 100, 1000, () => {
 //   moveX(btn, 100, 1000, () => {
@@ -81,39 +81,55 @@ const moveX = (element, amount, delay, onSucess, onFailure) => {
 //   });
 // });
 
-moveX(
-  btn,
-  100,
-  1000,
-  () => {
-    // success
-    moveX(
-      btn,
-      400,
-      1000,
-      () => {
-        // success
-        moveX(
-          btn,
-          700,
-          1000,
-          () => {
-            // success
-            console.log("REALLY, WE STILL HAVE SCREEN LEFT?");
-          },
-          () => {
-            alert("CANNOT MOVE FURTHER!");
-          }
-        );
-      },
-      () => {
-        // fail
-        alert("CANNOT MOVE FURTHER!");
-      }
-    );
-  },
-  () => {
-    // fail
-    alert("CANNOT MOVE FURTHER!");
+// moveX(
+//   btn,
+//   100,
+//   1000,
+//   () => {
+//     // success
+//     moveX(
+//       btn,
+//       400,
+//       1000,
+//       () => {
+//         // success
+//         moveX(
+//           btn,
+//           700,
+//           1000,
+//           () => {
+//             // success
+//             console.log("REALLY, WE STILL HAVE SCREEN LEFT?");
+//           },
+//           () => {
+//             alert("CANNOT MOVE FURTHER!");
+//           }
+//         );
+//       },
+//       () => {
+//         // fail
+//         alert("CANNOT MOVE FURTHER!");
+//       }
+//     );
+//   },
+//   () => {
+//     // fail
+//     alert("CANNOT MOVE FURTHER!");
+//   }
+// );
+
+// Introducing Promises
+const willGetYouADog = new Promise((resolve, reject) => {
+  const rand = Math.random();
+  if (rand < 0.5) {
+    resolve();
+  } else {
+    reject();
   }
-);
+});
+willGetYouADog.then(() => {
+  console.log("YAY WE GOT A DOG");
+});
+willGetYouADog.catch(() => {
+  console.log(":( NO DOG");
+});
