@@ -44,26 +44,31 @@
 //     console.log(err);
 //   });
 
+const checkStatusAndParse = (response) => {
+  if (!response.ok) {
+    throw new Error(`Status Code: ${respnse.status}`);
+  }
+  return response.json();
+};
+
+const printPlanets = (data) => {
+  console.log("Loaded 10 more plants...");
+  for (let planet of data.results) {
+    console.log(planet.name);
+  }
+  return Promise.resolve(data.next);
+};
+
+const fetchNextPlanets = (url) => {
+  return fetch(url);
+};
+
 fetch("https://swapi.dev/api/planets/")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`Status Code: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    const filmURL = data.results[0].films[0];
-    return fetch(filmURL);
-  })
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`Status Code: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    console.log(data);
-  })
+  .then(checkStatusAndParse)
+  .then(printPlanets)
+  .then(fetchNextPlanets)
+  .then(checkStatusAndParse)
+  .then(printPlanets)
   .catch((err) => {
     console.log(err);
   });
