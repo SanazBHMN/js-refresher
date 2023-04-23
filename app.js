@@ -73,10 +73,29 @@
 //     console.log(err);
 //   });
 
+// axios
+//   .get("https://swapi.dev/api/planets/")
+//   .then((res) => {
+//     console.log(res.data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
 axios
   .get("https://swapi.dev/api/planets/")
-  .then((res) => {
-    console.log(res.data);
+  .then(({ data }) => {
+    console.log(data);
+    for (let planet of data.results) {
+      console.log(planet.name);
+    }
+    return axios.get(data.next);
+  })
+  .then(({ data }) => {
+    console.log(data);
+    for (let planet of data.results) {
+      console.log(planet.name);
+    }
   })
   .catch((err) => {
     console.log(err);
