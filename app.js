@@ -35,9 +35,22 @@
 //   console.log(res.data);
 // });
 
+// async function getTodos() {
+//   const res = await axios.get("https://jsonplaceholder.typicode.com/todos/1");
+//   console.log(res);
+// }
+
+// getTodos();
+
 async function getTodos() {
-  const res = await axios.get("https://jsonplaceholder.typicode.com/todos/1");
-  console.log(res);
+  try {
+    const res = await axios.get(
+      "https://jsonplaceholderasdfa.typicode.com/todos/1"
+    );
+    console.log(res.data);
+  } catch (e) {
+    console.log("IN CATCH!", e);
+  }
 }
 
 getTodos();
